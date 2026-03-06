@@ -1,0 +1,16 @@
+    //icono de la Aplicacion
+    <link rel="icon"  type="image/x-icon" href="favicon.ico">
+    // color de la Aplicacion
+    <meta name="theme-color" content="#2563eb">
+    // optimizacion movil
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    // para que la pwa se ejecute en modo pantalla completa
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="apple-touch-start-image" href="#">
+    // manifest de la Aplicacion y estilos
+    <link rel="manifest" href="manifest.json">
+    // estilos para la Aplicacion
+    <link rel="stylesheet" href="styles.css">

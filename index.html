@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Erick Adrian Sanchez Cervantes - Desarrollador de Aplicaciones Web Progresivas - PWA Expert">
+    <meta name="theme-color" content="#2563eb">
+    <title>Erick Adrian - Desarrollador de PWA | Landing Page</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Ingeniero Erick Sanchez</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1 class="main-title">Desarrollador De Software</h1>
+            <p class="subtitle">Multiples experiencias en el area de desarrollo y TI</p>
+            <a href="#contacto" class="btn btn-primary">Comienza tu Proyecto</a>
+        </div>
+        <div class="hero-visual">
+            <div class="animated-box"></div>
+        </div>
+    </section>
+
+    <!-- Sección de Presentación -->
+    <section class="about">
+        <div class="container">
+            <h2>Sobre Mí</h2>
+            <p class="about-text">
+                Estudiante con gran interés en ingresar al mercado laboral para poner 
+                en práctica mis conocimientos. Me considero una persona trabajadora, 
+                comunicativa y comprometida. Me gustaría encontrar una oportunidad 
+                para ganar más experiencia profesional. 
+            </p>
+        </div>
+    </section>
+
+    <section id="proyectos" class="projects">
+        <div class="container">
+            <h2>Experiencias</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="src/safran.jpg" alt="E-Commerce PWA">
+                    </div>
+                    <div class="project-content">
+                        <h3>Safran</h3>
+                        <p>Creacion de macros para la automatizacion de herramientas de creacion y modificacion para diseños 3D Y 2D</p>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Service Worker</span>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="src/moyra.jpg" alt="App de Tareas">
+                    </div>
+                    <div class="project-content">
+                        <h3>El Moyra</h3>
+                        <p>Asistente en facturacion</p>
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">IndexedDB</span>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="src/item.jpg" alt="Dashboard Analítico">
+                    </div>
+                    <div class="project-content">
+                        <h3>MSC</h3>
+                        <p>Asistente de item master.</p>
+                        <span class="tech-tag">Angular</span>
+                        <span class="tech-tag">WebSocket</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Habilidades -->
+    <section class="skills">
+        <div class="container">
+            <h2>Tecnologías</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h4>Frontend</h4>
+                    <p>HTML5, CSS3, JavaScript, React, Vue.js, Angular</p>
+                </div>
+                <div class="skill-item">
+                    <h4>PWA</h4>
+                    <p>Service Workers, Web App Manifest, Push Notifications</p>
+                </div>
+                <div class="skill-item">
+                    <h4>Storage</h4>
+                    <p>LocalStorage, IndexedDB, Cache API</p>
+                </div>
+                <div class="skill-item">
+                    <h4>Backend</h4>
+                    <p>Node.js, Express, Firebase, APIs REST</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video/Animación -->
+    <section class="media-section">
+        <div class="container">
+            <h2>Visualización del Proceso</h2>
+            <div class="video-container">
+                <iframe width="100%" height="400" src="src/Proyecto.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Contacto -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2>Contacta Conmigo</h2>
+            <p class="contact-subtitle">Cuéntame sobre tu proyecto y cómo puedo ayudarte</p>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="asunto">Asunto</label>
+                    <input type="text" id="asunto" name="asunto" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-submit">Enviar Mensaje</button>
+            </form>
+            <div id="formMessage" class="form-message" style="display:none;"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Erick Adrian Sanchez Cervantes. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="https://github.com" target="_blank">GitHub</a>
+                <a href="https://twitter.com" target="_blank">Twitter</a>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# Archivos ignorados en Git
+node_modules/
+.env
+.env.local
+.DS_Store
+Thumbs.db
+*.log
+dist/
+build/
+.cache/
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+.pytest_cache/
+__pycache__/
+*.mp4
+src/Proyecto.mp4

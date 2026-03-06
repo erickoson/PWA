@@ -1,0 +1,125 @@
+<!-- 
+GUÍA DE CONFIGURACIÓN DE EMAILJS
+
+Para usar EmailJS y enviar emails reales desde tu formulario:
+
+1. Crea una cuenta gratuita en: https://www.emailjs.com/
+
+2. Obtén tus credenciales:
+   - Public Key (desde Dashboard)
+   - Service ID (crear nuevo email service)
+   - Template ID (crear nuevo template de email)
+
+3. Incluye este script en index.html (antes del cierre de </body>):
+
+PASO 1: Agregar script de EmailJS
+-->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+<script type="text/javascript">
+    // Inicializar EmailJS con tu Public Key
+    emailjs.init("TU_PUBLIC_KEY_AQUI");
+</script>
+
+<!-- 
+PASO 2: En script.js, descomenta la función emailjs.send() aproximadamente en la línea 50-60
+
+    await emailjs.send('TU_SERVICE_ID', 'TU_TEMPLATE_ID', {
+        to_email: 'tu_email@ejemplo.com',
+        from_name: datos.nombre,
+        from_email: datos.email,
+        subject: datos.asunto,
+        message: datos.mensaje,
+        date: datos.fecha
+    });
+
+PASO 3: Crear un Template en EmailJS
+   - Ir a Templates
+   - Click en "Create New Template"
+   - Configurar los campos a recibir
+   - Guardar el Template
+   - Copiar el Template ID
+
+PASO 4: Configurar el Email Service
+   - Ir a Email Services
+   - Conectar tu proveedor (Gmail, Outlook, etc.)
+   - Obtener el Service ID
+
+PASO 5: Reemplazar en script.js:
+   - TU_SERVICE_ID → tu Service ID real
+   - TU_TEMPLATE_ID → tu Template ID real
+   - tu_email@ejemplo.com → tu email de destino
+
+Ejemplo de Template en EmailJS:
+   Subject: Nuevo mensaje de {{from_name}}
+   
+   Nombre: {{from_name}}
+   Email: {{from_email}}
+   Asunto: {{subject}}
+   Fecha: {{date}}
+   
+   Mensaje:
+   {{message}}
+-->
+
+<!-- 
+ALTERNATIVA: USANDO TU PROPIO BACKEND
+
+Si prefieres usar tu propio servidor:
+
+1. En tu backend (Node.js, Python, PHP, etc.):
+   - Recibir POST en /api/send-email
+   - Validar datos
+   - Enviar email usando nodemailer, sendgrid, etc.
+   - Responder con { success: true }
+
+2. En script.js, descomenta la función fetch() alrededor de la línea 50-60:
+
+    const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(datos)
+    });
+    return response.json();
+
+3. Ejemplo de backend con Node.js + Nodemailer:
+
+    const nodemailer = require('nodemailer');
+    
+    app.post('/api/send-email', async (req, res) => {
+        const { nombre, email, asunto, mensaje, fecha } = req.body;
+        
+        let transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASSWORD
+            }
+        });
+        
+        try {
+            await transporter.sendMail({
+                from: email,
+                to: process.env.RECIPIENT_EMAIL,
+                subject: `Nuevo mensaje de ${nombre}: ${asunto}`,
+                html: `
+                    <h2>Nuevo mensaje de contacto</h2>
+                    <p><strong>Nombre:</strong> ${nombre}</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Asunto:</strong> ${asunto}</p>
+                    <p><strong>Fecha:</strong> ${fecha}</p>
+                    <hr>
+                    <p><strong>Mensaje:</strong></p>
+                    <p>${mensaje.replace(/\n/g, '<br>')}</p>
+                `
+            });
+            
+            res.json({ success: true, message: 'Email enviado correctamente' });
+        } catch (error) {
+            console.error('Error:', error);
+            res.status(500).json({ success: false, message: 'Error al enviar email' });
+        }
+    });
+-->
